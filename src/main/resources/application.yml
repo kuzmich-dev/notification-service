@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: 853ca7e14d51e8
+    password: c4ad9e2f3ea151
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
