@@ -34,13 +34,11 @@ class MailControllerIntegrationTest {
     @Test
     void shouldSendEmailViaRestApi() throws Exception {
         UserEventDTO dto = new UserEventDTO("test@mail.com", "CREATE");
-
         mockMvc.perform(post("/api/mail/send")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Письмо отправлено"));
-
         verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
     }
 
