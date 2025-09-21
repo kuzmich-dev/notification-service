@@ -2,7 +2,6 @@ package com.example.notification_service.controllers;
 
 import com.example.core.dto.UserEventDTO;
 import com.example.notification_service.service.EmailService;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
