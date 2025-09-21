@@ -1,20 +1,32 @@
 server:
   port: 8081
+
 spring:
+  jmx:
+    enabled: false
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: notification-group
+      auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: '*'
+        spring.json.trusted.packages: "com.example.core.dto"
+    listener:
+      missing-topics-fatal: false
 
-  mail:
-    host: sandbox.smtp.mailtrap.io
-    port: 587
-    username: 853ca7e14d51e8
-    password: c4ad9e2f3ea151
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+logging:
+  level:
+    org.apache.kafka: WARN
+    org.springframework.kafka: INFO
+
+mail:
+  host: sandbox.smtp.mailtrap.io
+  port: 587
+  username: 853ca7e14d51e8
+  password: c4ad9e2f3ea151
+  properties:
+    mail.smtp.auth: true
+    mail.smtp.starttls.enable: true
