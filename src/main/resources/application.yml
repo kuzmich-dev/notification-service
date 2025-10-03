@@ -21,12 +21,3 @@ logging:
   level:
     org.apache.kafka: WARN
     org.springframework.kafka: INFO
-
-mail:
-  host: sandbox.smtp.mailtrap.io
-  port: 587
-  username: 853ca7e14d51e8
-  password: c4ad9e2f3ea151
-  properties:
-    mail.smtp.auth: true
-    mail.smtp.starttls.enable: true
